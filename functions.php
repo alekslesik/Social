@@ -64,12 +64,12 @@ function sanitizeString($var)
 function showProfile($user)
 {
     if (file_exists("$user.jpg"))
-        echo "img src='$user.jpg' align='left'";
+        echo "<img src='$user.jpg' align='left'>";
 
     $result = queryMysql("SELECT * FROM profiles WHERE user='$user'");
 
     if ($result->num_rows) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
-        echo stripcslashes($row['text'] . "<br> style='clear:left;'><br>");
+        echo stripcslashes($row['text']) . "<br style='clear:left;'><br>";
     } else echo "<p>There are no data in table</p><br>";
 }

@@ -1,5 +1,5 @@
 <?php
-//session_start();
+if (!isset($_SESSION)) session_start();
 
 require_once "init.html";
 require_once "functions.php";
